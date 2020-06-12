@@ -42,15 +42,15 @@ class RingBuffer:
     def __init__(self, capacity):
         self.storage = LinkedList()
         # populate ring with Nones
-        for i in range(capacity+1):
+        for i in range(capacity):
             self.storage.add_to_head(None)
         
         # find end of LL
         self.write_node = self.storage.head
         while self.write_node.next_node is not None:
             self.write_node = self.write_node.next_node
-        
-        # make it a ring
+
+        # bend list into ring
         self.write_node.next_node = self.storage.head
         self.write_node = self.storage.head
         self.capacity = capacity
@@ -70,7 +70,14 @@ class RingBuffer:
 
         return ret_list
 
-# rb = RingBuffer(5)
-# rb.append('a')
-# foo  = rb.get()
-# print(foo)                
+rb = RingBuffer(5)
+rb.append('a')
+rb.append('b')
+rb.append('c')
+rb.append('d')
+rb.append('e')
+    
+
+# for i in range(5):
+#     print(rb.write_node.value)
+#     rb.write_node = rb.write_node.next_node
