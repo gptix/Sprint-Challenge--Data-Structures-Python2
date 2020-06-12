@@ -47,3 +47,16 @@ print (f"runtime: {end_time - start_time} seconds")
 
 # Python dicts are appropriate. Average worst time for insert or retrieve of O(1).
 # Best time on a lenovo X230 running Ubuntu 18.04 and Python 3.7: 
+
+
+
+# SSTTRREETTCCHH
+
+
+# with limited memory, I would:
+# sort both lists
+# chop extraneous head off of the one with 'earlier' unmatched names
+# crawl pointers down both lists
+  # if a match, add to 'duplicates' and delete both.
+  # if not a match, delete the 'less' one
+  # stop when either input list is empty
