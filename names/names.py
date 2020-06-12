@@ -12,11 +12,19 @@ f.close()
 
 duplicates = []  # Return the list of duplicates in this data structure
 
+
+# The code below is O(n^2) because it has two nested for loops.
+
 # Replace the nested for loops below with your improvements
 # for name_1 in names_1:
 #     for name_2 in names_2:
 #         if name_1 == name_2:
 #             duplicates.append(name_1)
+
+
+# The code below is O(n) because it has two for loops, but they are in series.
+# The dictionary has an average worst case of O(1)
+# ref: https://wiki.python.org/moin/TimeComplexity - section "dict"
 
 names_dict = {}
 for name_1 in names_1:
@@ -35,3 +43,7 @@ print (f"runtime: {end_time - start_time} seconds")
 # Python has built-in tools that allow for a very efficient approach to this problem
 # What's the best time you can accomplish?  Thare are no restrictions on techniques or data
 # structures, but you may not import any additional libraries that you did not write yourself.
+
+
+# Python dicts are appropriate. Average worst time for insert or retrieve of O(1).
+# Best time on a lenovo X230 running Ubuntu 18.04 and Python 3.7: 
